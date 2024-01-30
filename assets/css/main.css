@@ -117,7 +117,7 @@ img {
 .header-section {
   h3 {
     text-align: center;
-    margin-bottom: var(--mb-2);
+    margin-bottom: var(--mb-1);
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
     color: var(--first-color);
@@ -336,5 +336,26 @@ section.menu {
         }
       }
     }
+  }
+}
+
+/* App Section */
+section.app {
+  .section-data {
+    > p {
+      text-align: center;
+      width: 94%;
+      margin: 0 auto var(--mb-4);
+    }
+    .images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: var(--mb-4);
+    }
+  }
+  .section-img {
+    width: 230px;
+    margin: 0 auto;
   }
 }
