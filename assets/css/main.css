@@ -111,6 +111,10 @@ img {
   color: #fff;
   border: none;
   border-radius: 0.6rem;
+  transition: 0.3s;
+  &:hover {
+    background-color: var(--first-color-alt);
+  }
 }
 
 /* Main Header Section */
@@ -357,5 +361,20 @@ section.app {
   .section-img {
     width: 230px;
     margin: 0 auto;
+  }
+}
+
+/* Contact Section */
+section.contact {
+  .section-data {
+    > p {
+      width: 94%;
+      margin: 0 auto var(--mb-4);
+      text-align: center;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+    }
   }
 }
