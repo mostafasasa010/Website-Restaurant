@@ -290,3 +290,51 @@ section.services {
     }
   }
 }
+
+/* Menu Section */
+section.menu {
+  .section-data {
+    .menu-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      gap: 1.5rem;
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(3, 74, 40, 0.15);
+        border-radius: 0.6rem;
+        padding: 0.8rem;
+        img {
+          width: 100px;
+          margin-bottom: var(--mb-2);
+        }
+        h3 {
+          color: var(--title-color);
+          font-size: var(--normal-font-size);
+        }
+        p {
+          font-size: var(--small-font-size);
+          margin-bottom: var(--mb-1);
+        }
+        > div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .price {
+            font-size: var(--small-font-size);
+            font-weight: var(--font-semi-bold);
+          }
+          .shop {
+            margin-bottom: -13px;
+            margin-right: -13px;
+            display: flex;
+            padding: 0.625rem 0.813rem;
+            border-radius: 0.5rem 0 0.5rem 0;
+          }
+        }
+      }
+    }
+  }
+}
