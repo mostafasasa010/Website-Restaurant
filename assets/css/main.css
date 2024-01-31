@@ -191,6 +191,7 @@ header {
   font-weight: var(--font-medium);
   background-color: var(--body-color);
   transition: 0.3s;
+  z-index: var(--z-fixed);
   &.scroll-header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }

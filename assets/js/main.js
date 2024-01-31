@@ -47,3 +47,14 @@ window.addEventListener("scroll", () => {
     btnTop.classList.remove("active");
   }
 });
+
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "30px",
+  duration: 2000,
+  reset: true,
+});
+
+sr.reveal(`.section-data, .section-img, .footer-data`, {
+  interval: 200,
+});
