@@ -102,6 +102,29 @@ img {
   margin-right: var(--mb-2);
 }
 
+/* Button To Top */
+.btn-top {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: -20%;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transition: 0.3s;
+  &:hover {
+    opacity: 1;
+  }
+  &.active {
+    bottom: 1rem;
+  }
+  i {
+    font-size: 2rem;
+  }
+}
+
 /* Main Button */
 .main-btn {
   padding: 0.75rem 1rem;
@@ -132,6 +155,13 @@ img {
     color: var(--title-color);
     font-weight: var(--font-semi-bold);
     margin-bottom: var(--mb-4);
+    &.content {
+      color: var(--text-color);
+      text-align: center;
+      font-size: var(--normal-font-size);
+      font-weight: var(--font-medium);
+      margin-bottom: var(--mb-2);
+    }
   }
 }
 
@@ -168,6 +198,7 @@ header {
     color: var(--text-color);
   }
   nav.nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -200,6 +231,17 @@ header {
       }
       li {
         width: 100%;
+        &.theme {
+          position: absolute;
+          right: 20px;
+          width: fit-content;
+          top: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            color: var(--first-color);
+          }
+        }
         a {
           display: block;
           width: 100%;
@@ -255,10 +297,6 @@ section.home {
 section.about {
   gap: 2rem;
   .section-data {
-    > p {
-      text-align: center;
-      margin-bottom: var(--mb-2);
-    }
     button {
       margin: 0 auto;
       display: block;
@@ -275,8 +313,7 @@ section.about {
 section.services {
   .section-data {
     .cards-services {
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 1rem;
       .card {
         text-align: center;
@@ -315,9 +352,10 @@ section.menu {
         box-shadow: 0 2px 4px rgba(3, 74, 40, 0.15);
         border-radius: 0.6rem;
         padding: 0.8rem;
+        background-color: var(--container-color);
         img {
           width: 100px;
-          margin-bottom: var(--mb-2);
+          margin: 0 auto var(--mb-2);
         }
         h3 {
           color: var(--title-color);
@@ -351,11 +389,6 @@ section.menu {
 /* App Section */
 section.app {
   .section-data {
-    > p {
-      text-align: center;
-      width: 94%;
-      margin: 0 auto var(--mb-4);
-    }
     .images {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -372,11 +405,6 @@ section.app {
 /* Contact Section */
 section.contact {
   .section-data {
-    > p {
-      width: 94%;
-      margin: 0 auto var(--mb-4);
-      text-align: center;
-    }
     button {
       display: block;
       margin: 0 auto;
@@ -390,7 +418,6 @@ footer {
   padding-bottom: 2rem;
   .foot {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     .footer-data {
       &.one {
@@ -440,5 +467,106 @@ footer {
     text-align: center;
     color: var(--text-color-light);
     font-size: var(--small-font-size);
+  }
+}
+
+/* Media Queries */
+@media screen and (min-width: 576px) {
+  section.home,
+  section.about,
+  section.app {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+  section.about,
+  section.app {
+    .section-img {
+      order: -1;
+    }
+  }
+  section.services {
+    .section-data .cards-services {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  }
+  section.contact {
+    .section-data {
+      display: grid;
+      grid-template-columns: 1.75fr 1fr;
+      align-items: center;
+      gap: 1.5rem;
+      .header-section {
+        h3,
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+  .foot {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    height: calc(var(--header-height) + 1rem);
+    nav {
+      display: flex;
+      justify-content: space-between;
+      .icon-menu {
+        display: none !important;
+      }
+      .nav-menu {
+        top: var(--header-height) !important;
+        position: relative !important;
+        top: 0 !important;
+        flex-direction: row !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 75% !important;
+        gap: 0.8rem !important;
+        li {
+          a {
+            padding: 0 !important;
+          }
+        }
+        .theme {
+          position: relative !important;
+          right: 0 !important;
+          top: 0 !important;
+        }
+      }
+    }
+  }
+  section.services {
+    .section-data .cards-services {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+    }
+  }
+  .menu-cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+    align-items: center;
+    img {
+      width: 130px !important;
+    }
+  }
+  .foot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .foot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
